@@ -51,7 +51,6 @@ extension UISlider: ValidatableInterfaceElement {
             let result = Validator.validate(input: inputValue, rule: r)
             if let h = validationHandler { h(result) }
             return result
-        }
     }
 }
 #endif
