@@ -53,4 +53,11 @@ extension UITextField: ValidatableInterfaceElement {
         sender.validate()
     }
     
+    public func validate<R: ValidationRule>(rule r: R) -> ValidationResult where R.InputType == InputType {
+        let result = Validator.validate(input: inputValue, rule: r)
+        if let h = validationHandler { h(result) }
+        return result
+    }
+       
+    
 }
